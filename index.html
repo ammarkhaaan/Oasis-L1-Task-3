@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TempeConverter</title>
+    <style>
+        html{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            height: 100%;
+            overflow: hidden;
+        }
+        body{
+            background-image: url(https://images.unsplash.com/photo-1496765111150-918497b59c9e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2874&q=80);
+            padding: 100px 200px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+        }
+        h1{
+            text-align: center;
+            font-weight: bolder;
+            color: rgb(0, 0, 0);
+            font-size: 50px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        label{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: rgb(45, 89, 127);
+        }
+      #container{
+            padding: 100px 0px;
+            text-align: center;
+            background: rgba( 255, 255, 255, 0.3 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 8.5px );
+            -webkit-backdrop-filter: blur( 8.5px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            display: flexbox;
+            align-items: center;
+            justify-content: space-between;
+      } 
+      .ipn-div{
+            display: flexbox;
+            align-items: center;
+            justify-content: space-evenly;
+      }
+      label{
+        font-size: 32px;
+      }
+      .inp{
+          margin: 10px;
+          padding: 5px 10px;
+          font-size: 20px;
+          font-weight: bolder;
+          text-align: center;
+          border-color: rgba(74, 74, 74, 0.182);
+          width: 100px;
+          border-radius: 5px;
+          outline: none;
+      }
+      span{
+          font-size: 30px;
+          font-weight: bolder;
+      }
+
+    </style>
+</head>
+<body>
+    <h1>Temperature Converter</h1>
+    <div id="container">
+        <div class="inpdiv">
+            <label>CELCIUS</label> <br>
+            <INput type="number" value="0" id="cel" class="inp"></INput>
+
+        </div>
+
+              <span>=</span>
+
+        <div  class="inpdiv"> 
+            <label>FAHRENHEIT</label> <br>
+            <INput type="number" value="32" id="feh" class="inp"></INput>
+        </div>
+    </div>
+
+    <script>
+
+        let cal = document.getElementById("cel");
+        let feh = document.getElementById("feh");
+
+        cal.addEventListener('input', function(){
+            console.log("celcius change")
+            let c = this.value;
+            let f = (c * 9/5) + 32;
+            if(!Number.isInteger){
+                f = f.toFixed(4)
+            }
+            feh.value=f;
+        })
+
+        feh.addEventListener("input", function(){
+            console.log("feher change")
+            let f = this.value;
+            let c = (f - 32) * 9/5;
+            if(!Number.isInteger){
+                c = c.toFixed(4)
+            }
+            cal.value = c;
+        })
+
+    </script>
+    
+</body>
+</html>
